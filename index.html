@@ -7,44 +7,54 @@
   <title>Drumpad - JS</title>
 
   <style>
+    :root {
+      --black: #000;
+      --white: #fff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
     html, body {
       width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
     }
-    html {
-      font-size: 14px;
-    }
-    body {
-      font-size: 62.5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
     .Drumpad {
       position: relative;
       display: flex;
-      flex-wrap: wrap;
       align-content: flex-start;
-      width: 50%;
-      padding: 20px;
-      border: 1px solid #000;
-      border-radius: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+      background-color: var(--black);
     }
     .Drumpad__key {
-      width: 20%;
+      width: 50px;
       height: 50px;
-      border: 1px solid #000;
       border-radius: 5px;
+      background-color: var(--white);
+      opacity: .6;
     }
   </style>
 </head>
 <body>
 
   <div class="Drumpad">
-
+    <div class="Drumpad__key" data-key="65"></div>
+    <div class="Drumpad__key" data-key="83"></div>
+    <div class="Drumpad__key" data-key="68"></div>
+    <div class="Drumpad__key" data-key="70"></div>
+    <div class="Drumpad__key" data-key="71"></div>
+    <div class="Drumpad__key" data-key="72"></div>
+    <div class="Drumpad__key" data-key="74"></div>
+    <div class="Drumpad__key" data-key="76"></div>
   </div>
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
@@ -61,15 +71,27 @@
     (function(window, document) {
       'use strict';
 
+      function removeTransition(e) {
+        e.target.classList.remove('is-playing');
+      }
+
       function playSound(e) {
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const keyCode = e.keyCode || this.dataset.key;
+        const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${keyCode}"]`);
         if (!audio) return;
 
+        key.classList.add('is-playing');
         audio.currentTime = 0;
         audio.play();
       }
 
+      const keys = Array.from(document.querySelectorAll('.Drumpad__key'));
+
       window.addEventListener('keydown', playSound);
+      keys.forEach(key => key.addEventListener('click', playSound));
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
     })(window, document);
   </script>
 </body>
