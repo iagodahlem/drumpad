@@ -1,0 +1,15 @@
+{
+  "name": "drumpad",
+  "repository": "https://github.com/iagodahlem/drumpad.git",
+  "author": "Iago Dahlem Lorensini <iagodahlemlorensini@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "live-server --port=8080 --host=localhost --open=./index.html",
+    "prod": "htmlmin --nojsmin -o index.html index.html",
+    "start": "yarn run dev"
+  },
+  "devDependencies": {
+    "htmlmin": "0.0.7",
+    "live-server": "1.1.0"
+  }
+}
