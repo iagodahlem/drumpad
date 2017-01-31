@@ -4,9 +4,8 @@
   "author": "Iago Dahlem Lorensini <iagodahlemlorensini@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "live-server --port=8080 --host=localhost --open=./index.html",
-    "prod": "htmlmin --nojsmin -o index.html index.html",
-    "start": "yarn run dev"
+    "start": "live-server --port=8080 --host=localhost --open=./index.html",
+    "build": "htmlmin --nojsmin -o index.html index.html"
   },
   "devDependencies": {
     "htmlmin": "0.0.7",
