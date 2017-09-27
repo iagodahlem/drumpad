@@ -4,11 +4,27 @@
   "author": "Iago Dahlem Lorensini <iagodahlemlorensini@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "live-server --port=8080 --host=localhost --open=./index.html",
-    "build": "htmlmin --nojsmin -o index.html index.html"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "keycode": "^2.1.9",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.12",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "htmlmin": "0.0.7",
-    "live-server": "1.1.0"
+    "enzyme": "^2.9.1",
+    "nock": "^9.0.21",
+    "react-test-renderer": "^15.6.2",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.3.0"
   }
 }
