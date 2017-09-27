@@ -2,6 +2,7 @@
   "name": "drumpad",
   "repository": "https://github.com/iagodahlem/drumpad.git",
   "author": "Iago Dahlem Lorensini <iagodahlemlorensini@gmail.com>",
+  "homepage": "https://iagodahlem.github.io/drumpad",
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
